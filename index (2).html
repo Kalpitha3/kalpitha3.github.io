@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kalpitha Sheshachalam Naidu — Cybersecurity Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #EDEFEA;
+    --paper-raised: #F5F6F2;
+    --ink: #1C2521;
+    --body: #37423C;
+    --muted: #6B756E;
+    --line: #C7CCC2;
+    --accent: #A6402F;
+    --tech: #2C5164;
+    --tech-soft: #E2E9EA;
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin: 0;
+    background: var(--paper);
+    color: var(--body);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap{
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px 100px;
+  }
+  h1, h2, h3{
+    font-family: 'Newsreader', serif;
+    color: var(--ink);
+    margin: 0;
+    font-weight: 500;
+  }
+  .mono{ font-family: 'IBM Plex Mono', monospace; }
+  a{ color: var(--tech); }
+  a:hover{ color: var(--accent); }
+
+  .hero{
+    position: relative;
+    padding: 56px 0 40px;
+    overflow: hidden;
+  }
+  .hero-net{
+    position: absolute;
+    top: -40px;
+    right: -60px;
+    width: 420px;
+    height: 420px;
+    opacity: 0.55;
+    pointer-events: none;
+  }
+  @media (max-width: 720px){
+    .hero-net{ width: 260px; height: 260px; top: -20px; right: -70px; opacity: 0.35; }
+  }
+  .hero-net line{
+    stroke: var(--tech);
+    stroke-width: 1;
+    stroke-dasharray: 6 5;
+    animation: flow 3.5s linear infinite;
+  }
+  .hero-net line.hot{ stroke: var(--accent); }
+  .hero-net circle{ fill: var(--paper); stroke: var(--tech); stroke-width: 1.5; }
+  .hero-net circle.hub{ fill: var(--tech); stroke: var(--tech); }
+  @keyframes flow{ to{ stroke-dashoffset: -22; } }
+  @media (prefers-reduced-motion: reduce){
+    .hero-net line{ animation: none; }
+  }
+
+  .hero-content{ position: relative; z-index: 1; max-width: 60%; }
+  @media (max-width: 720px){ .hero-content{ max-width: 100%; } }
+  .role-tag{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+    margin-bottom: 14px;
+    opacity: 0;
+    animation: rise 0.6s ease-out 0.05s forwards;
+  }
+  h1{
+    font-size: 44px;
+    line-height: 1.15;
+    opacity: 0;
+    animation: rise 0.6s ease-out 0.15s forwards;
+  }
+  .subtitle{
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--muted);
+    margin-top: 6px;
+    opacity: 0;
+    animation: rise 0.6s ease-out 0.25s forwards;
+  }
+  .objective{
+    margin-top: 24px;
+    max-width: 58ch;
+    font-size: 16px;
+    opacity: 0;
+    animation: rise 0.6s ease-out 0.35s forwards;
+  }
+  @keyframes rise{ from{ opacity: 0; transform: translateY(10px); } to{ opacity: 1; transform: translateY(0); } }
+
+  .stat-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+    opacity: 0;
+    animation: rise 0.6s ease-out 0.45s forwards;
+  }
+  .stat-chip{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--tech);
+    background: var(--tech-soft);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 5px 10px;
+  }
+
+  .links{
+    margin-top: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    opacity: 0;
+    animation: rise 0.6s ease-out 0.55s forwards;
+  }
+  .links a{ text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px; }
+  .links a:hover{ border-color: var(--accent); }
+
+  hr{ border: none; border-top: 1px solid var(--line); margin: 52px 0; }
+  section h2{ font-size: 24px; margin-bottom: 28px; }
+
+  .cap-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 32px;
+  }
+  .cap-block{
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .cap-icon{
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--paper-raised);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cap-icon svg{ width: 18px; height: 18px; stroke: var(--tech); fill: none; stroke-width: 1.6; }
+  .cap-block h3{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--tech);
+    margin-bottom: 6px;
+  }
+  .cap-block p{ margin: 0; font-size: 14.5px; color: var(--body); }
+
+  .entry{ margin-bottom: 36px; }
+  .entry:last-child{ margin-bottom: 0; }
+  .entry-head{ display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px 16px; }
+  .entry-head h3{ font-family: 'Newsreader', serif; font-size: 20px; font-weight: 500; color: var(--ink); }
+  .entry-org{ font-size: 14px; color: var(--muted); margin-top: 2px; }
+  .entry-meta{ font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--muted); white-space: nowrap; }
+  .entry ul{ margin: 14px 0 0; padding-left: 20px; }
+  .entry li{ margin-bottom: 6px; font-size: 15px; }
+
+  .project{
+    border-top: 1px solid var(--line);
+    padding: 28px 0 28px 18px;
+    border-left: 3px solid var(--line);
+    margin-left: -18px;
+    transition: border-left-color 0.2s ease, transform 0.2s ease;
+  }
+  .project:hover{ border-left-color: var(--accent); transform: translateX(2px); }
+  .project:first-of-type{ border-top: none; padding-top: 0; }
+  .project-head{ display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px 16px; margin-bottom: 6px; }
+  .project-head h3{ font-size: 21px; font-weight: 500; max-width: 70%; }
+  .project-date{ font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--muted); }
+  .project-domain{ font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--accent); margin-bottom: 14px; }
+  .project p{ font-size: 15px; margin: 0 0 14px; max-width: 65ch; }
+  .tags{ display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .tag{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--body);
+    background: var(--tech-soft);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 3px 8px;
+  }
+  .project-link{ font-family: 'IBM Plex Mono', monospace; font-size: 13.5px; text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 1px; }
+  .project-link:hover{ border-color: var(--accent); }
+
+  footer{ margin-top: 64px; padding-top: 28px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+
+  @media (max-width: 620px){
+    .wrap{ padding: 0 20px 72px; }
+    h1{ font-size: 34px; }
+    .cap-grid{ grid-template-columns: 1fr; }
+    .project-head h3{ max-width: 100%; }
+    .entry-head, .project-head{ flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <svg class="hero-net" viewBox="0 0 420 420" aria-hidden="true">
+      <line x1="210" y1="210" x2="60" y2="90" />
+      <line x1="210" y1="210" x2="350" y2="70" class="hot" />
+      <line x1="210" y1="210" x2="370" y2="250" />
+      <line x1="210" y1="210" x2="90" y2="320" />
+      <line x1="210" y1="210" x2="250" y2="360" />
+      <line x1="60" y1="90" x2="350" y2="70" />
+      <line x1="370" y1="250" x2="250" y2="360" />
+      <circle class="hub" cx="210" cy="210" r="9" />
+      <circle cx="60" cy="90" r="5" />
+      <circle cx="350" cy="70" r="5" />
+      <circle cx="370" cy="250" r="5" />
+      <circle cx="90" cy="320" r="5" />
+      <circle cx="250" cy="360" r="5" />
+    </svg>
+
+    <div class="hero-content">
+      <div class="role-tag mono">Security Operations · Digital Forensics · Network Security</div>
+      <h1>Kalpitha Sheshachalam Naidu</h1>
+      <div class="subtitle">IT Networking Assistant &amp; Cybersecurity Graduate Student</div>
+      <p class="objective">
+        I'm a graduate student pursuing an M.S. in Cybersecurity and Networks at the University
+        of New Haven, with hands-on experience in SIEM concepts, threat analysis, vulnerability
+        assessment, secure network design, and incident response — built through academic
+        projects and IT infrastructure work.
+      </p>
+      <div class="stat-row">
+        <span class="stat-chip">3.80 GPA</span>
+        <span class="stat-chip">NSA Cyber Ops</span>
+        <span class="stat-chip">Class of 2027</span>
+      </div>
+      <div class="links">
+        <a href="mailto:kalpithas79@gmail.com">Email</a>
+        <a href="https://linkedin.com/in/kalpitha3" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Kalpitha3" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <section id="capabilities">
+    <h2>Capabilities</h2>
+    <div class="cap-grid">
+      <div class="cap-block">
+        <div class="cap-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <div>
+          <h3>Security operations &amp; threat analysis</h3>
+          <p>SIEM concepts, alert triage, log analysis, threat intelligence, incident response, MITRE ATT&amp;CK, threat hunting, IoC analysis, IAM.</p>
+        </div>
+      </div>
+      <div class="cap-block">
+        <div class="cap-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v6M12 13l-6 4M12 13l6 4"/></svg>
+        </div>
+        <div>
+          <h3>Network administration &amp; security</h3>
+          <p>Switching &amp; wireless configuration, network troubleshooting, monitoring &amp; management, VLAN segmentation, OSPF, NAT, ACLs, DHCP, QoS, SSH, port security.</p>
+        </div>
+      </div>
+      <div class="cap-block">
+        <div class="cap-icon">
+          <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 10h8M8 14h5"/></svg>
+        </div>
+        <div>
+          <h3>Governance, risk &amp; compliance</h3>
+          <p>NIST Cybersecurity Framework, ISO 27001:2022, CIS Controls, SOC 2, risk assessment, vulnerability assessment, security policy.</p>
+        </div>
+      </div>
+      <div class="cap-block">
+        <div class="cap-icon">
+          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 005.4-5.4l-2.5 2.5-2-2z"/></svg>
+        </div>
+        <div>
+          <h3>Tools &amp; programming</h3>
+          <p>Wireshark, Cisco Packet Tracer, Splunk (foundational), VirusTotal, Shodan, Python, C/C++, SQL, Linux, Windows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div>
+          <h3>Networking Intern → Networking Assistant</h3>
+          <div class="entry-org">Office of Information Technology, University of New Haven</div>
+        </div>
+        <div class="entry-meta">May 2026 – Present</div>
+      </div>
+      <ul>
+        <li>Diagnose and resolve network connectivity issues for staff and students across LAN, wireless, and related infrastructure.</li>
+        <li>Configure and maintain switching, wireless access points, and other network technologies for reliable, optimized performance.</li>
+        <li>Install and maintain network racks and closets, including structured cabling and patch panels.</li>
+        <li>Support deployment, configuration, and testing of network monitoring systems to improve infrastructure visibility and fault detection.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div>
+          <h3>Database Management and Security Intern</h3>
+          <div class="entry-org">Pinnacle Infologix Pvt Ltd, Bengaluru, India</div>
+        </div>
+        <div class="entry-meta">Jan – Mar 2025</div>
+      </div>
+      <ul>
+        <li>Performed data integrity checks and routine database maintenance.</li>
+        <li>Worked with application security practices including access control, role-based permissions, and data validation.</li>
+        <li>Documented database schemas and internal data flow processes.</li>
+        <li>Tested ERP system modules for security vulnerabilities and data-handling compliance.</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr>
+
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>Digital Forensic Investigation of the CompTech Breach</h3>
+        <div class="project-date">Apr – May 2026</div>
+      </div>
+      <div class="project-domain">Digital forensics &amp; incident response</div>
+      <p>Full case investigation reconstructing a multi-stage intrusion — phishing, plugin exploitation, web shell deployment, and Meterpreter persistence — from disk images and network captures, with findings corroborated across independent evidence sources.</p>
+      <div class="tags">
+        <span class="tag">Autopsy</span>
+        <span class="tag">Wireshark</span>
+        <span class="tag">Volatility</span>
+      </div>
+      <a class="project-link" href="https://github.com/Kalpitha3/comptech-dfir-investigation" target="_blank" rel="noopener">View write-up on GitHub</a>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>AI-Generated Email Phishing Analysis</h3>
+        <div class="project-date">Oct – Dec 2025</div>
+      </div>
+      <div class="project-domain">Threat analysis</div>
+      <p>Literature review comparing AI-generated phishing to human-crafted attacks — 54% vs 12% click-through rates — and evaluating detection methods spanning spam filters, Random Forest, and LSTM models.</p>
+      <div class="tags">
+        <span class="tag">Threat modeling</span>
+        <span class="tag">ML detection</span>
+      </div>
+      <a class="project-link" href="https://github.com/Kalpitha3/ai-phishing-analysis" target="_blank" rel="noopener">View write-up on GitHub</a>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>Zero-Trust Three-Tier Network Architecture</h3>
+        <div class="project-date">Oct – Dec 2025</div>
+      </div>
+      <div class="project-domain">Network security design</div>
+      <p>Designed and validated a redundant, segmented enterprise network for a simulated business client — VLANs, OSPF, ACLs, port security, and QoS — tied to a real cost/TCO business case.</p>
+      <div class="tags">
+        <span class="tag">Cisco Packet Tracer</span>
+        <span class="tag">OSPF</span>
+        <span class="tag">Zero Trust</span>
+      </div>
+      <a class="project-link" href="#">View write-up on GitHub</a>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>The Threat Landscape of Mobile Phone Spyware</h3>
+        <div class="project-date">Bengaluru, India</div>
+      </div>
+      <div class="project-domain">Malware analysis</div>
+      <p>Literature review plus hands-on dynamic (behavioral) analysis of Android spyware in an isolated sandbox, mapping observed behavior to MITRE ATT&amp;CK and correlating with known spyware families.</p>
+      <div class="tags">
+        <span class="tag">Sandboxing</span>
+        <span class="tag">MITRE ATT&CK</span>
+      </div>
+      <a class="project-link" href="#">View write-up on GitHub</a>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>The Role of AI and Machine Learning in Wireless Threat Detection</h3>
+        <div class="project-date">Wireless Networks course</div>
+      </div>
+      <div class="project-domain">Applied ML research</div>
+      <p>Literature review comparing hybrid deep learning (Attention-CNN-LSTM), classical ML, and federated learning approaches to wireless intrusion detection across benchmark datasets, synthesizing findings into deployment recommendations for AI-based wireless IDS.</p>
+      <div class="tags">
+        <span class="tag">CNN-LSTM</span>
+        <span class="tag">Federated Learning</span>
+        <span class="tag">IDS</span>
+      </div>
+      <a class="project-link" href="#">View write-up on GitHub</a>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>Analyzing the Potential of Machine Learning in Cybersecurity Malware Detection</h3>
+        <div class="project-date">Applied ML research</div>
+      </div>
+      <div class="project-domain">Malware detection</div>
+      <p>Literature review comparing signature-based, heuristic, anomaly-based, and sandboxing malware detection against supervised, unsupervised, semi-supervised, and reinforcement learning approaches — covering adversarial evasion, data imbalance, interpretability, and where ML-based detection still falls short in production.</p>
+      <div class="tags">
+        <span class="tag">Supervised Learning</span>
+        <span class="tag">Adversarial ML</span>
+      </div>
+      <a class="project-link" href="#">View write-up on GitHub</a>
+    </div>
+  </section>
+
+  <hr>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <div>
+          <h3>M.S. Cybersecurity and Networks</h3>
+          <div class="entry-org">University of New Haven — NSA Cyber Ops designation · GPA 3.80/4.00</div>
+        </div>
+        <div class="entry-meta">May 2027</div>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <div>
+          <h3>B.C.A., Information Security and Mobile Applications</h3>
+          <div class="entry-org">JAIN (Deemed-to-be University), Bengaluru, India · GPA 3.20/4.00</div>
+        </div>
+        <div class="entry-meta">May 2025</div>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <section id="recognition">
+    <h2>Honors and Awards</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <div>
+          <h3>Influential Women Media Recognition</h3>
+          <div class="entry-org">Recognized as an Influential Woman for being one of the youngest graduate women in cybersecurity and featured in an article. <a href="https://influentialwomen.com/connect/kalpitha-s" target="_blank" rel="noopener">Read the feature →</a></div>
+        </div>
+        <div class="entry-meta">2026</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="mono">
+    Kalpitha Sheshachalam Naidu — West Haven, CT
+  </footer>
+
+</div>
+</body>
+</html>
